@@ -97,16 +97,16 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        // look at findByColumnAndValue
+        ArrayList<HashMap<String, String>> searchTermJobs = new ArrayList<>(); //initialize empty arraylist
 
-        ArrayList<HashMap<String, String>> searchTermJobs = new ArrayList<>();
+        for (HashMap<String, String> row : allJobs) { //outer for loop
 
-        for (HashMap<String, String> row : allJobs) {
+            for (String aValue : row.values()) { //inner for loop iterates over the values of current job entry (row)
 
-            for (String aValue : row.values()) {
-
-                if (aValue.toLowerCase().contains(value.toLowerCase())) {
-                    searchTermJobs.add(row);
-                    break;
+                if (aValue.toLowerCase().contains(value.toLowerCase())) { //case insensitive
+                    searchTermJobs.add(row); //adds job entry to searchTermJobs list
+                    break; // break loop
                 }
             }
         }

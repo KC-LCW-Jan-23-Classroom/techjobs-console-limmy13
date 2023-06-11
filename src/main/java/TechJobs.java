@@ -120,7 +120,7 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) { // use nested loops
         if (someJobs.isEmpty()) { // if/else loop in case job in someJobs is empty or doesn't match value
-            System.out.print("No Results");
+            System.out.print("No Results"); //no println (causing test to fail)
         } else {
             for (HashMap<String, String> job : someJobs) { // outer for loop
                 System.out.println("\n*****");
